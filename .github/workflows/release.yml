@@ -39,6 +39,9 @@ jobs:
           # Linux (amd64) build compatible with older glibc (e.g., Debian 11 / glibc 2.31)
           env CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -tags netgo -ldflags="-s -w" -o dist/Threadfin_linux_amd64_glibc_2.31_compat &
           
+          # Linux RISC-V 64-bit build
+          env GOOS=linux GOARCH=riscv64 go build -ldflags="-s -w" -o dist/Threadfin_linux_riscv64 &
+          
           # FreeBSD builds
           env GOOS=freebsd GOARCH=amd64 go build -ldflags="-s -w" -o dist/Threadfin_freebsd_amd64 &
           env GOOS=freebsd GOARCH=arm go build -ldflags="-s -w" -o dist/Threadfin_freebsd_arm &
